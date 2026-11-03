@@ -74,13 +74,38 @@ export function Module06Page() {
               <strong>uvicorn api.main:app --host 0.0.0.0 --port 8080</strong> in your Dockerfile CMD.
             </p>
           </div>
+          <Terminal title="Dockerfile" code={CODE.dockerfileApi} />
+        </div>
+      </section>
+      <div className="rule" />
+      <section className="sec">
+        <div className="wrap">
+          <p className="sec-label R">MLflow from the API</p>
+          <h2 className="sec-title R">Experiment metrics route.</h2>
+          <p className="sec-body R">
+            Expose recent runs so the React dashboard (Module 07) or Grafana can chart RMSE over time
+            without scraping the MLflow UI.
+          </p>
+          <Terminal title="GET /experiments/runs" code={CODE.mlflowMetricsRoute} />
+          <Terminal title="Firestore prediction log" code={CODE.firestoreLog} />
           <div className="callout cloud R">
-            <p className="callout-label">Firestore logging (optional)</p>
+            <p className="callout-label">Firestore</p>
             <p>
-              In /predict, append request features + prediction + model_version to Firestore for
-              monitoring — Cloud team creates the database in Native mode in Module 04.
+              Set <strong>ENABLE_FIRESTORE_LOG=1</strong> and <strong>GCP_PROJECT_ID</strong> on Cloud
+              Run. Cloud team creates Firestore in Module 04.
             </p>
           </div>
+          <p className="sec-label R" style={{ marginTop: '2rem' }}>
+            Manual test
+          </p>
+          <Terminal
+            title="curl — smoke test"
+            code={`curl -s https://YOUR_API/health | jq
+curl -s https://YOUR_API/model-info | jq
+curl -s -X POST https://YOUR_API/predict \\
+  -H "Content-Type: application/json" \\
+  -d '{"pickup_latitude":40.75,"pickup_longitude":-73.98,"dropoff_latitude":40.68,"dropoff_longitude":-73.95,"passenger_count":2}' | jq`}
+          />
           <div className="callout tip R">
             <p className="callout-label">✓ Module 07</p>
             <p>

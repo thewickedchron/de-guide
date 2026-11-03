@@ -72,6 +72,14 @@ export const COURSE_MODULES: CourseModule[] = [
     title: 'React Frontend',
     audience: 'both',
   },
+  {
+    num: '08',
+    slug: 'project-structure',
+    path: '/08-project-structure',
+    shortName: 'Repo',
+    title: 'Project Structure & Git',
+    audience: 'both',
+  },
 ]
 
 export const ORG_REPO = 'git-plus'

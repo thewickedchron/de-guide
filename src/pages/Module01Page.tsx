@@ -158,10 +158,39 @@ export function Module01Page() {
           <Terminal title="first_experiment.py" code={CODE.firstExperiment} />
           <div style={{ height: '1.5rem' }} />
           <Terminal title="terminal — MLflow UI" code={CODE.mlflowUi} />
+          <p className="sec-label R" style={{ marginTop: '2rem' }}>
+            Verify locally
+          </p>
+          <div className="step-list R">
+            <div className="step">
+              <div className="step-num">1</div>
+              <div className="step-content">
+                <div className="step-title">Start tracking server</div>
+                <p className="step-body">Run mlflow server in one terminal; keep it open.</p>
+              </div>
+            </div>
+            <div className="step">
+              <div className="step-num">2</div>
+              <div className="step-content">
+                <div className="step-title">Run first_experiment.py</div>
+                <p className="step-body">Note the printed Run ID and RMSE.</p>
+              </div>
+            </div>
+            <div className="step">
+              <div className="step-num">3</div>
+              <div className="step-content">
+                <div className="step-title">Open the UI</div>
+                <p className="step-body">
+                  Experiments → your experiment → click the run → confirm Parameters and Metrics
+                  tabs populate.
+                </p>
+              </div>
+            </div>
+          </div>
           <div className="callout tip R">
             <p className="callout-label">✓ Module 02</p>
             <p>
-              Next: integrate the same pattern into real <strong>train.py</strong>.{' '}
+              Next: <Link to="/08-project-structure">Module 08 (repo layout)</Link> then{' '}
               <Link to="/02-tracking">Module 02 — Tracking →</Link>
             </p>
           </div>

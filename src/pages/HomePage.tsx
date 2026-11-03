@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { ProgrammeTimeline } from '../components/ProgrammeTimeline'
 import { ProgressNav } from '../components/ProgressNav'
 
 const modules = [
@@ -86,6 +87,19 @@ const modules = [
       </>
     ),
   },
+  {
+    path: '/08-project-structure',
+    num: 'Module 08',
+    title: 'Project Structure & Git',
+    desc: 'Monorepo layout, .env contract, API schema, branch/PR workflow, and Docker conventions.',
+    className: 'c-both',
+    pills: (
+      <>
+        <span className="pill badge-ml">ML Team</span>
+        <span className="pill badge-cloud">Cloud Team</span>
+      </>
+    ),
+  },
 ]
 
 export function HomePage() {
@@ -125,7 +139,7 @@ export function HomePage() {
         <div className="wrap">
           <p className="sec-label R">The Course</p>
           <h2 className="sec-title R">
-            Eight modules.
+            Nine modules.
             <br />
             One working system.
           </h2>
@@ -184,6 +198,16 @@ export function HomePage() {
               </div>
             </div>
           </div>
+
+          <p className="sec-label R" style={{ marginTop: '4rem' }}>
+            7-week roadmap
+          </p>
+          <h2 className="sec-title R">Integration timeline.</h2>
+          <p className="sec-body R">
+            Full week-by-week ML vs Cloud deliverables, demo checklists, and non-negotiables live in{' '}
+            <Link to="/05-full-loop">Module 05</Link>. Preview:
+          </p>
+          <ProgrammeTimeline />
 
           <div className="prereq-box R">
             <p className="prereq-title">⚡ What you need before you start</p>

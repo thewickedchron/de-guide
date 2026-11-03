@@ -9,6 +9,7 @@ import { Module04Page } from './pages/Module04Page'
 import { Module05Page } from './pages/Module05Page'
 import { Module06Page } from './pages/Module06Page'
 import { Module07Page } from './pages/Module07Page'
+import { Module08Page } from './pages/Module08Page'
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="05-full-loop" element={<Module05Page />} />
           <Route path="06-api-backend" element={<Module06Page />} />
           <Route path="07-react-frontend" element={<Module07Page />} />
+          <Route path="08-project-structure" element={<Module08Page />} />
         </Route>
       </Routes>
     </BrowserRouter>

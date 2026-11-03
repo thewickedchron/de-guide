@@ -140,6 +140,69 @@ export function Module02Page() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+      <div className="rule" />
+      <section className="sec">
+        <div className="wrap">
+          <p className="sec-label R">Feature pipeline</p>
+          <h2 className="sec-title R">features.py</h2>
+          <p className="sec-body R">
+            Training and serving must call the same functions. If you engineer a column in train.py
+            but forget it in the API, your Production model will silently misbehave.
+          </p>
+          <Terminal title="src/features.py" code={CODE.featuresPy} />
+        </div>
+      </section>
+      <div className="rule" />
+      <section className="sec">
+        <div className="wrap">
+          <p className="sec-label R">Cloud data path</p>
+          <h2 className="sec-title R">Reading from GCS.</h2>
+          <p className="sec-body R">
+            When <strong>DATA_PATH=gs://…</strong>, pandas uses gcsfs. Locally you use Application
+            Default Credentials from <strong>gcloud auth application-default login</strong>; on Cloud
+            Run the service account attached to the job provides access.
+          </p>
+          <Terminal title="train.py — load_table helper" code={CODE.loadDataHelper} />
+          <Terminal title="Log plots as artifacts" code={CODE.logArtifacts} />
+        </div>
+      </section>
+      <div className="rule" />
+      <section className="sec">
+        <div className="wrap">
+          <p className="sec-label R">Verify</p>
+          <h2 className="sec-title R">Local checklist.</h2>
+          <div className="trouble-grid R">
+            <div className="trouble-item">
+              <div className="trouble-q">Run does not appear in UI</div>
+              <p className="trouble-a">
+                Wrong <strong>MLFLOW_TRACKING_URI</strong> or server not running. Match http vs https
+                and trailing slashes.
+              </p>
+            </div>
+            <div className="trouble-item">
+              <div className="trouble-q">Metric missing in gate</div>
+              <p className="trouble-a">
+                Gate reads <strong>rmse</strong> — log exactly that key with log_metric, not RMSE or
+                val_rmse unless you update the gate.
+              </p>
+            </div>
+            <div className="trouble-item">
+              <div className="trouble-q">Registered model name clash</div>
+              <p className="trouble-a">
+                Use one <strong>MLFLOW_MODEL_NAME</strong> per team repo. Coordinate in Module 08
+                contract.
+              </p>
+            </div>
+            <div className="trouble-item">
+              <div className="trouble-q">Duplicate runs every commit</div>
+              <p className="trouble-a">
+                CI should not call train.py on every push unless intended — use manual runs until Week
+                5 scheduler.
+              </p>
+            </div>
+          </div>
           <div className="callout tip R">
             <p className="callout-label">✓ Module 03</p>
             <p>

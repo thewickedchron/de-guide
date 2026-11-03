@@ -871,11 +871,17 @@ nav {
 
 .pn-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+  .pn-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
   .pn-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1588,4 +1594,221 @@ footer {
 .arch-node-sub {
   font-size: 0.85rem;
   color: var(--muted);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.tl-week {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  border-bottom: 1px solid var(--border);
+}
+
+.tl-week:last-child {
+  border-bottom: none;
+}
+
+.tl-num {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--cyan);
+  background: rgba(129, 140, 248, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--border);
+}
+
+.tl-content {
+  padding: 1.25rem 1.5rem;
+}
+
+.tl-title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--bright);
+  margin-bottom: 0.5rem;
+}
+
+.tl-ml,
+.tl-cloud {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin-top: 0.35rem;
+}
+
+.tl-ml::before {
+  content: 'ML · ';
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--ml);
+}
+
+.tl-cloud::before {
+  content: 'Cloud · ';
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--cloud);
+}
+
+.checkpoint-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 800px) {
+  .checkpoint-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cp-box {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+}
+
+.cp-who {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.cp-who.ml {
+  color: var(--ml);
+}
+.cp-who.cloud {
+  color: var(--cloud);
+}
+.cp-who.both {
+  color: var(--cyan);
+}
+
+.cp-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.cp-list li {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--text);
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.cp-list li::before {
+  content: '□';
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.trouble-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .trouble-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trouble-item {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+}
+
+.trouble-q {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--rose);
+  margin-bottom: 0.5rem;
+}
+
+.trouble-a {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.trouble-a strong {
+  color: var(--bright);
+}
+
+.repo-tree {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  line-height: 1.85;
+  color: var(--text);
+  background: #0f0f14;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.arch-diagram-wide {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 900px) {
+  .arch-diagram-wide {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.arch-box {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.arch-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.arch-name {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--bright);
+}
+
+.arch-svc {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  color: var(--muted);
+  margin-top: 0.35rem;
 }

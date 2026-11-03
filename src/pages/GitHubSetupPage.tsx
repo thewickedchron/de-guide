@@ -202,6 +202,14 @@ export function GitHubSetupPage() {
             Never commit <strong>.env</strong> or GCP keys — they stay in <strong>.gitignore</strong>.
           </p>
           <Terminal title="terminal — clone & local setup" code={CODE.gitClone} />
+          <p className="sec-label R" style={{ marginTop: '2rem' }}>
+            Repo map
+          </p>
+          <p className="sec-body R">
+            See <Link to="/08-project-structure">Module 08</Link> for the full tree, API contract, and
+            PR workflow.
+          </p>
+          <Terminal title="git — branches & PRs" code={CODE.gitWorkflow} />
 
           <div className="big-warning R">
             <div className="bw-title">Common mistakes</div>

@@ -69,7 +69,11 @@ echo "VITE_API_URL=https://prediction-api-xxxxx-uc.a.run.app" > .env.local`}
               </div>
             </div>
           </div>
-          <Terminal title="frontend/src/App.tsx — starter" code={CODE.reactApp} />
+          <Terminal title="frontend/src/App.tsx — full example" code={CODE.reactAppFull} />
+          <p className="sec-body R" style={{ marginTop: '2rem' }}>
+            Optional: add a second panel that calls <strong>/experiments/runs</strong> from Module 06
+            and lists the last five RMSE values.
+          </p>
           <Terminal
             title="FastAPI — CORS snippet"
             code={`from fastapi.middleware.cors import CORSMiddleware
