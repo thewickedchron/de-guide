@@ -1,0 +1,40 @@
+
+name: DE Guide Deployment 
+
+on: 
+  push:
+    branches:
+      - prod
+
+
+
+jobs: 
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Setup node environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies and install build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Copy Assets to Contabo Home Directory via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.CONTABO_SERVER_IP }}
+          username: ${{ secrets.CONTABO_SERVER_USERNAME }}
+          key: ${{ secrets.CONTABO_SERVER_SSH_KEY }}
+          port: 22
+          source: "dist/*"        # Read everything inside the compiled dist folder
+          target: "/usr/share/nginx/de-guide"  # Drop it into your home directory target folder
+          strip_components: 1
+
